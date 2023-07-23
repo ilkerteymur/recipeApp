@@ -1,0 +1,184 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  max-width: 115rem;
+  margin: 4vw auto;
+  min-height: 70vh;
+  border-radius: 6px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.search_form {
+  grid-area: search;
+}
+
+.likes {
+  grid-area: likes;
+}
+
+header {
+  display: grid;
+  align-items: center;
+  padding: 0 20px;
+  background: #f9f5f3;
+  border-radius: 10px 10px 0 0;
+  grid-template-areas: "logo search likes";
+}
+@media (max-width: 700px) {
+  header {
+    grid-template-areas: "logo likes" "search search";
+  }
+}
+header .logo {
+  display: flex;
+  align-items: center;
+}
+header .logo img {
+  height: 100px;
+}
+header .logo a {
+  color: rgba(223, 37, 37, 0.842);
+}
+header .search_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  header .search_form {
+    margin-bottom: 30px;
+  }
+}
+header form {
+  background: white;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+header form:focus-within {
+  transform: translateY(-2px);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+header form input {
+  border: none;
+  font-size: 15px;
+  width: 300px;
+  outline: none;
+  padding: 3px 8px;
+  border-radius: 40px;
+}
+header form input::-moz-placeholder {
+  color: #b9aba6;
+}
+header form input::placeholder {
+  color: #b9aba6;
+}
+header form button {
+  border-radius: 40px;
+  padding: 10px 30px;
+  background: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+  color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+header form button:hover {
+  scale: 1.1;
+}
+header .likes {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 60px;
+}
+@media (max-width: 700px) {
+  header .likes {
+    margin-left: unset;
+  }
+}
+header .likes i {
+  transition: all 0.2s;
+}
+header .likes i:hover {
+  color: rgba(128, 128, 128, 0.795);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 100%;
+}
+main section {
+  height: 100%;
+}
+main .results {
+  display: flex;
+  flex-direction: column;
+}
+main .results .result-link {
+  background: white;
+  border-top: white;
+  display: flex;
+  padding: 10px 20px;
+  gap: 20px;
+  align-items: center;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+main .results .result-link:hover {
+  transform: translateY(-2px);
+  background: rgba(192, 117, 79, 0.1098039216);
+}
+main .results .result-link img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .results .result-link .data h4 {
+  color: rgba(0, 0, 0, 0.664);
+  white-space: nowrap;
+  max-width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .recipe {
+  background: #f9f5f3;
+}
+.loader {
+  margin: 80px auto;
+}
+.loader img {
+  width: 300px;
+}/*# sourceMappingURL=style.css.map */
