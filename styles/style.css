@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap");
 a {
   text-decoration: none;
   color: black;
@@ -16,20 +17,26 @@ button {
 }
 
 body {
-  font-family: sans-serif;
   background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
   min-height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   background: white;
-  max-width: 115rem;
+  max-width: 110rem;
   margin: 4vw auto;
   min-height: 70vh;
   border-radius: 6px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 1200px) {
+  .container {
+    margin: auto;
+    min-height: 100vh;
+  }
 }
 
 .logo {
@@ -137,6 +144,12 @@ main {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   height: 100%;
+  flex-grow: 1;
+}
+@media (max-width: 1200px) {
+  main {
+    grid-template-columns: 1fr;
+  }
 }
 main section {
   height: 100%;
@@ -169,13 +182,188 @@ main .results .result-link img {
 main .results .result-link .data h4 {
   color: rgba(0, 0, 0, 0.664);
   white-space: nowrap;
-  max-width: 350px;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-main .recipe {
+@media (max-width: 1200px) {
+  main .results .result-link .data h4 {
+    max-width: 500px;
+  }
+}
+
+.recipe {
   background: #f9f5f3;
 }
+
+.recipe figure {
+  height: 300px;
+  position: relative;
+}
+.recipe figure::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%);
+  opacity: 0.4;
+}
+.recipe figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.recipe figure h1 {
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  transform: translate(-40% 20%);
+  transform: skewY(-6deg);
+  color: white;
+  font-weight: 600;
+  background-image: linear-gradient(90deg, #A9C9FF 70%, #FFBBEC 100%);
+  white-space: nowrap;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.562);
+  padding: 10px 30px;
+  font-family: "Ubuntu", sans-serif;
+}
+.recipe figure .like-area {
+  display: flex;
+  justify-content: end;
+  padding: 20px;
+}
+.recipe figure .like-area i {
+  font-size: 24px;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all 300ms;
+  cursor: pointer;
+}
+.recipe figure .like-area i:hover {
+  transform: scale(0.9);
+}
+
+.recipe .ingredients {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  margin: 40px 0 0;
+}
+.recipe .ingredients ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  width: 90%;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .recipe .ingredients ul {
+    grid-template-columns: 1fr;
+  }
+}
+.recipe .ingredients ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.recipe .ingredients ul li i {
+  color: #91b8fd;
+}
+.recipe .ingredients ul li p {
+  white-space: nowrap;
+  max-width: 289px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 700px) {
+  .recipe .ingredients ul li p {
+    max-width: 450px;
+  }
+}
+@media (max-width: 500px) {
+  .recipe .ingredients ul li p {
+    max-width: 300px;
+  }
+}
+.recipe .ingredients button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  padding: 10px;
+  color: white;
+  font-weight: 600;
+  background-image: linear-gradient(90deg, #A9C9FF 70%, #FFBBEC 100%);
+  transition: all 300ms;
+  max-width: 500px;
+  margin: 50px auto;
+  width: 100%;
+  font-size: 15px;
+}
+.recipe .ingredients button span, .recipe .ingredients button i {
+  pointer-events: none;
+}
+.recipe .ingredients button i {
+  font-size: 20px;
+}
+.recipe .ingredients button:hover {
+  scale: 0.95;
+}
+
+.recipe .directions {
+  text-align: center;
+  padding-bottom: 40px;
+}
+.recipe .directions h2 {
+  transform: skewY(-3deg);
+  font-weight: 600;
+  color: rgba(235, 86, 193, 0.8705882353);
+  font-family: "ubuntu";
+  font-size: 30px;
+  text-shadow: 0 0 10px #FFBBEC;
+}
+.recipe .directions p {
+  padding: 50px;
+}
+.recipe .directions p span {
+  color: #c088b0;
+}
+.recipe .directions a {
+  padding: 10px 30px;
+  border: 1px solid #A9C9FF;
+  border-radius: 30px;
+  transition: all 300ms;
+}
+.recipe .directions a:hover {
+  background-color: #1d3e77;
+  color: white;
+}
+
+.shopping {
+  padding: 5px 2px;
+}
+.shopping h2 {
+  font-family: "ubuntu";
+  text-align: center;
+  color: #A9C9FF;
+}
+.shopping ul {
+  overflow-x: auto;
+}
+.shopping ul li {
+  list-style: none;
+}
+
 .loader {
   margin: 80px auto;
 }

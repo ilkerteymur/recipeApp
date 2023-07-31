@@ -2,11 +2,12 @@ import { elements } from "./helpers.js"
 
 // api'den gelen sonuçları ekrana basar
 export const renderResults = (recipes) => {
+    elements.resultList.innerHTML = "";
     // her bir obje için ekrana sonuç basma
     recipes.slice(0,10).forEach((recipe) => {
         // kart için html hazırlama
         const markup = `
-        <a class="result-link">
+        <a href="#${recipe.recipe_id}" class="result-link">
                     <img src="${recipe.image_url}">
                     <div class="data">
                         <h4>${recipe.title}</h4>
@@ -39,3 +40,13 @@ export const clearLoader = () => {
     // eğer bulunduysa loader'ı HTML'den kaldır
    if(loader) loader.remove();
 };
+
+// ekrana sepeti eklenen ürünleri basar
+export const renderBasketItems = (items) => {
+   const markup = items.map((item)=>`
+    <li>${item.title}</li>
+    `)
+    .join("");
+
+    elements.basketList.innerHTML = markup;
+}
