@@ -1,4 +1,4 @@
-import { elements } from "./helpers.js"
+import { elements } from "./helpers.js";
 
 // api'den gelen sonuçları ekrana basar
 export const renderResults = (recipes) => {
@@ -44,9 +44,13 @@ export const clearLoader = () => {
 // ekrana sepeti eklenen ürünleri basar
 export const renderBasketItems = (items) => {
    const markup = items.map((item)=>`
-    <li>${item.title}</li>
+    <li data-id=${item.id}>
+    <i id="delete-item" class="bi bi-trash-fill"></i>
+    <span>${item.title}</span>
+    </li>
     `)
     .join("");
 
     elements.basketList.innerHTML = markup;
 }
+
